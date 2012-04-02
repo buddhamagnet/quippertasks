@@ -1,5 +1,13 @@
 require 'spec_helper'
 
 describe Task do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before(:each) do
+    @task = Task.new
+  end
+  
+  describe "task assocations" do
+    it "should have a user method" do
+      @task.should respond_to(:user)
+    end
+  end
 end
