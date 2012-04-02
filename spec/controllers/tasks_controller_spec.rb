@@ -27,7 +27,8 @@ describe TasksController do
       
       it "should display the new task form" do
         get :new
-        response.body.should have_selector('h1', :text => "Create a task")
+        save_and_open_page
+        response.body.should have_selector('legend', :text => "New Task")
       end
     end
   end
