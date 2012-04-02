@@ -24,6 +24,31 @@ describe TasksController do
     end
   end
   
+  describe "show task" do
+    before(:each) do
+      @task = FactoryGirl.create(:task)
+    end
+    
+    describe "not signed in" do
+      it "should deny access" do
+        get :show, :id => @task
+        response.should redirect_to root_path
+      end
+    end
+    
+    describe "signed in" do
+      before(:each) do
+        @user = FactoryGirl.create(:user, :email => Factory.next(:email))
+        sign_in @user
+      end
+      
+      it "should show the task" do
+        get :show, :id => @task
+        response.should be_success
+      end
+    end
+  end
+  
   describe "new task" do
     describe "not signed in" do
       it "should deny access" do

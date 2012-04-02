@@ -1,23 +1,18 @@
-<h1>/Task</h1>
+<h1>Task</h1>
 
 <p>
-  <b>Name</b><br>
+  <strong>Name</strong><br>
   <%= @task.name %>
 </p>
 
 <p>
-  <b>Description</b><br>
+  <strong>Description</strong><br>
   <%= @task.description %>
 </p>
 
 <p>
-  <b>User</b><br>
-  <%= @task.user_id %>
-</p>
-
-<p>
-  <b>Deadline</b><br>
-  <%= @task.deadline %>
+  <strong>Deadline</strong><br>
+  <%= @task.deadline || "none" %>
 </p>
 
 <div class="form-actions">
