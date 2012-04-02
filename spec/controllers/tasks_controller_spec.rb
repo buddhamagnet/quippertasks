@@ -10,13 +10,24 @@ describe TasksController do
       
       it "should display a flash message" do
         get :new
-        flash[:notice].should == "Please log in to create a task"
+        flash[:notice].should == "Please log in to perform this action"
       end
     end
     
     describe "signed in" do
       before(:each) do
+        @user = FactoryGirl.create(:user)
         sign_in @user
+      end
+      
+      it "should allow access" do
+        get :new
+        response.should be_success
+      end
+      
+      it "should display the new task form" do
+        get :new
+        response.body.should have_selector('h1', :text => "Create a task")
       end
     end
   end

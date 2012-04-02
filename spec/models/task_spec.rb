@@ -10,4 +10,14 @@ describe Task do
       @task.should respond_to(:user)
     end
   end
+  
+  describe "task validations" do
+    it "should require a name" do
+      Task.new(:name => '', :description => "I am the task with no name").should_not be_valid
+    end
+    
+    it "should require a description" do
+      Task.new(:name => 'Test task', :description => '').should_not be_valid
+    end
+  end
 end
