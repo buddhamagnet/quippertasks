@@ -1,9 +1,7 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :task do
-    name "MyString"
-    description "MyText"
+    name "test task"
+    description "I am just a test task"
     user nil
   end
 end
