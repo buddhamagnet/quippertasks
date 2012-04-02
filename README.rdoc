@@ -20,8 +20,8 @@ As per instructions:
 == COMPLETED STORIES
 
 1. As a user, I want to create a task so that I will not forget something to do.
-
 2. As a user, I want to create a task with a deadline so that I will not miss deadline.
+
 3. As a user, I want to edit a task so that I can change a task after I created
 4. As a user, I want to mark a task as done so that I can distinguish incomplete tasks from complete ones.
 5. As a user, I want to see all tasks which didn't meet deadline as of today.

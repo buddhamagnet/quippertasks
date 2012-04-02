@@ -5,6 +5,12 @@ describe Task do
     @task = Task.new
   end
   
+  describe "task attributes" do
+    it "should have a deadline" do
+      @task.should respond_to(:deadline)
+    end
+  end
+  
   describe "task assocations" do
     it "should have a user method" do
       @task.should respond_to(:user)

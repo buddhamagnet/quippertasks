@@ -4,4 +4,8 @@ FactoryGirl.define do
     password               "moonmadness"
     password_confirmation  "moonmadness"
   end
+  
+  Factory.sequence :email do |n|
+    "user-#{n}@gmail.com"
+  end
 end
