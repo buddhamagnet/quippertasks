@@ -33,8 +33,9 @@
 	    <p>ahshajshjhsjahsjhashahsjah</p>
 	  </div>
 	  <div class="span9">
-		<p class="notice"><%= notice %></p>
-	    <p class="alert"><%= alert %></p>
+		<% flash.each do |key, message | %>
+		  <%= content_tag('div', message, :class => key) %>
+	    <% end %>
 		<%= yield %>
 	  </div>
 	</div>
