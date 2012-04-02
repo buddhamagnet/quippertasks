@@ -7,12 +7,27 @@ As per instructions:
 3. Most of the code should be test-covered - try 100%
 4. Using any database - sqlite3 in development, mySQL in production
 5. Using any testing framework - used rspec, capybara, faker, launchy, guard and factory_girl
+6. Using any open source libraries:
 
-All user stories were comppleted, including the optional ones, and the application deployed
-to heroku.
+   A. devise for user authentication.
+   B. Twitter bootstrap for look and feel.
+   C. pages controller for static pages.
 
+7. Using any web service - 
+8. Not all stories have to be finished - they were!
+9. Stories do not have to be finished in that order - again, they were.
 
+== COMPLETED STORIES
 
+1. As a user, I want to create a task so that I will not forget something to do.
 
-
-
+2. As a user, I want to create a task with a deadline so that I will not miss deadline.
+3. As a user, I want to edit a task so that I can change a task after I created
+4. As a user, I want to mark a task as done so that I can distinguish incomplete tasks from complete ones.
+5. As a user, I want to see all tasks which didn't meet deadline as of today.
+6. As a user, I want to delete a task so that I can remove task which is not a task any more.
+7. As a user, I want to see tasks list ordered by created date
+8. As a user, I want to see tasks list ordered by deadline
+9. As a user, I want to tweet a completed task
+10. As a user, I want to attach files to a task
+11. As a user, I want to get notified by email after a deadline exceeded.
