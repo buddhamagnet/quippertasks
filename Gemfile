@@ -27,3 +27,7 @@ group :development, :test do
   gem 'guard-livereload'
   gem 'factory_girl_rails'
 end
+
+group :production do
+  gem 'pg'
+end

@@ -29,12 +29,6 @@ As per instructions:
 7. As a user, I want to see tasks list ordered by created date.
 8. As a user, I want to see tasks list ordered by deadline.
 
-== NICE TO HAVE
-
-9. As a user, I want to tweet a completed task
-10. As a user, I want to attach files to a task
-11. As a user, I want to get notified by email after a deadline exceeded.
-
 == WORKING EXAMPLE
 
 Deployed to heroku at quippertest.heroku.com
