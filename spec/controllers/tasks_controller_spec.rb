@@ -101,6 +101,31 @@ describe TasksController do
         put :update, :id => @task.id, :task => @attr
         response.should redirect_to tasks_path
       end 
+      
+      it "should be marked as completed" do
+        put :update, :id => @task.id, :task => @attr.merge!(:completed => true)
+        @task.reload
+        @task.should be_completed
+      end
+    end
+  end
+  
+  describe "tasks that missed deadline" do
+    before(:each) do
+      @user = FactoryGirl.create(:user, :email => Factory.next(:email))
+      sign_in @user
+      @user.tasks << FactoryGirl.create(:task, :deadline => Date.today)
+    end
+    
+    it "should not display any tasks if no deadlines have been missed" do
+      get :expired
+      response.body.should have_selector("h1", :text => "No tasks currently expired")
+    end
+    
+    it "should display a task that has missed the deadline" do
+      Timecop.freeze(Date.today + 30)
+      get :expired
+      response.body.should have_selector("h1", :text => "Expired Tasks")
     end
   end
   

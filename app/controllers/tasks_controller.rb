@@ -36,4 +36,8 @@ class TasksController < ApplicationController
       render 'new'
     end
   end
+  
+  def expired
+    @tasks = Task.expired
+  end
 end

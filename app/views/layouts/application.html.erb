@@ -20,6 +20,7 @@
 		  <% if user_signed_in? %>
 		  <li><%= link_to "my tasks", tasks_path %></li>
 		  <li><%= link_to "create task", new_task_path %></li>
+		  <li><%= link_to "expired tasks", expired_tasks_path %><li>
 		  <% end %>
 		</ul>
 	  </div>

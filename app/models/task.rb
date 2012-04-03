@@ -4,4 +4,6 @@ class Task < ActiveRecord::Base
   validates :name, :presence => true
   validates :description, :presence => true
   validates :deadline, :presence => true
+  
+  scope :expired, where("deadline < ?", Date.today)
 end

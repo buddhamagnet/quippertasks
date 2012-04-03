@@ -23,10 +23,10 @@ As per instructions:
 2. As a user, I want to create a task with a deadline so that I will not miss deadline.
 3. As a user, I want to edit a task so that I can change a task after I created.
 4. As a user, I want to mark a task as done so that I can distinguish incomplete tasks from complete ones.
+5. As a user, I want to see all tasks which didn't meet deadline as of today.
 
 == IN PROGRESS
 
-5. As a user, I want to see all tasks which didn't meet deadline as of today.
 6. As a user, I want to delete a task so that I can remove task which is not a task any more.
 
 == NICE TO HAVE
@@ -38,3 +38,7 @@ As per instructions:
 9. As a user, I want to tweet a completed task
 10. As a user, I want to attach files to a task
 11. As a user, I want to get notified by email after a deadline exceeded.
+
+== WORKING EXAMPLE
+
+Deployed to heroku at quippertest.heroku.com

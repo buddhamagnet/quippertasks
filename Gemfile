@@ -15,6 +15,7 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'timecop'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'faker'
