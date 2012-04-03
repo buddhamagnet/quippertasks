@@ -27,16 +27,7 @@
   </div>
   <div class="container">
 	<div class="row">
-	  <div class="span3">
-	    <p>ahshajshjhsjahsjhashahsjah</p>
-	    <p>ahshajshjhsjahsjhashahsjah</p>
-	    <p>ahshajshjhsjahsjhashahsjah</p>
-	    <p>ahshajshjhsjahsjhashahsjah</p>
-	    <p>ahshajshjhsjahsjhashahsjah</p>
-	    <p>ahshajshjhsjahsjhashahsjah</p>
-	    <p>ahshajshjhsjahsjhashahsjah</p>
-	  </div>
-	  <div class="span9">
+	  <div class="span12">
 		<% flash.each do |key, message | %>
 		  <%= content_tag('div', message, :class => key) %>
 	    <% end %>
