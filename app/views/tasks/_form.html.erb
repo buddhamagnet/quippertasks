@@ -1,6 +1,7 @@
 <%= form_for @task, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Task</legend>
+    <%= render :partial => 'shared/error_messages', :locals => { :object => @task } %>
 
     <div class="control-group">
       <%= f.label :name, :class => 'control-label' %>
