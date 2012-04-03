@@ -49,6 +49,61 @@ describe TasksController do
     end
   end
   
+  describe "edit a task" do
+    describe "not signed in" do
+      before(:each) do
+        @user = FactoryGirl.create(:user, :email => Factory.next(:email))
+        @task = FactoryGirl.create(:task)
+      end
+      
+      it "should deny access" do
+        get :edit, :id => @task.id
+        response.should redirect_to root_path
+      end
+    end
+    
+    describe "signed in" do
+      before(:each) do
+        @user = FactoryGirl.create(:user, :email => Factory.next(:email))
+        sign_in @user
+        @task = FactoryGirl.create(:task)
+      end
+      
+      it "should display the edit page" do
+        get :edit, :id => @task.id
+        response.should be_success
+      end
+    end    
+  end
+  
+  describe "update a task" do
+    describe "not signed in" do
+      before(:each) do
+        @user = FactoryGirl.create(:user, :email => Factory.next(:email))
+        @task = FactoryGirl.create(:task)
+      end
+
+      it "should deny access" do
+        put :update, :id => @task.id, :task => @attr
+        response.should redirect_to root_path
+      end 
+    end
+    
+    describe "signed in" do
+      before(:each) do
+        @user = FactoryGirl.create(:user, :email => Factory.next(:email))
+        sign_in @user
+        @task = FactoryGirl.create(:task)
+        @attr = { :name => "Updated task", :description => "I have been updated", :deadline => Time.now }
+      end
+
+      it "should update the task" do
+        put :update, :id => @task.id, :task => @attr
+        response.should redirect_to tasks_path
+      end 
+    end
+  end
+  
   describe "new task" do
     describe "not signed in" do
       it "should deny access" do

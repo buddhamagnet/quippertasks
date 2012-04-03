@@ -13,6 +13,21 @@ class TasksController < ApplicationController
     @task = Task.new
   end
   
+  def edit
+    @task = Task.find(params[:id])
+  end
+  
+  def update
+    @task = Task.find(params[:id])
+    if @task.update_attributes(params[:task])
+      flash[:success] = "Task updated"
+      redirect_to tasks_path
+    else
+      flash[:notice] = "Task not updated"
+      render 'edit'
+    end
+  end
+  
   def create
     @task = current_user.tasks.build(params[:task])
     if @task.save
