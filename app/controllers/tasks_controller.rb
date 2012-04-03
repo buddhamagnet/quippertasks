@@ -37,6 +37,12 @@ class TasksController < ApplicationController
     end
   end
   
+  def destroy
+    Task.find_by_id(params[:id]).destroy
+    flash[:notice] = "Task has been deleted"
+    redirect_to tasks_path
+  end
+  
   def expired
     @tasks = Task.expired
   end

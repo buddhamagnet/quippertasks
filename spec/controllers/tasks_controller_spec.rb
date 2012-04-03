@@ -190,6 +190,30 @@ describe TasksController do
         post :create, :task => @attr.merge!(:deadline => "")
       end.should_not change(Task, :count)
     end
+  end
   
+  describe "delete task" do
+    before(:each) do
+      @user = FactoryGirl.create(:user, :email => Factory.next(:email))
+      sign_in @user
+      @task = FactoryGirl.create(:task)
+      @user.tasks << @task
+    end
+      
+    it "should delete the task" do
+      lambda do
+        delete :destroy, :id => @task
+      end.should change(Task, :count).by(-1)
+    end
+    
+    it "should decrement the user tasks array" do
+      delete :destroy, :id => @task
+      @user.tasks.count.should == 0
+    end
+    
+    it "should redirect to the task page" do
+      delete :destroy, :id => @task
+      response.should redirect_to tasks_path
+    end
   end
 end
