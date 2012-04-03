@@ -216,4 +216,27 @@ describe TasksController do
       response.should redirect_to tasks_path
     end
   end
+  
+  describe "sortable index" do
+    before(:each) do
+      @task1 = Task.create!(:name => "Amazed", :description => "Foo", :deadline => Date.today)
+      @task2 = Task.create!(:name => "ZOMG", :description => "Foo", :deadline => Date.today)
+      @task3 = Task.create!(:name => "Irrelevant", :description => "Foo", :deadline => Date.today, :completed => true)
+    end
+    
+    it "should show task 1 first in default state" do
+      get :index
+      response.should have_selector('a', :class => "task1", :text => @task1.name)
+    end
+    
+    it "should show task 2 first in reverse name order" do   
+      get :index, :sort => "name", :order => "DESC"
+      response.should have_selector('a', :class => "task1", :text => @task2.name)
+    end
+    
+    it "should show task 3 first in completed order" do
+      get :index, :sort => "completed", :order => "DESC"
+      response.should have_selector('a', :class => "task1", :text => @task3.name)
+    end
+  end
 end

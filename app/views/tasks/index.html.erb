@@ -11,9 +11,10 @@
     </tr>
   </thead>
   <tbody>
+	<% i = 1 %>
     <% @tasks.each do |task| %>
       <tr>
-        <td><%= link_to task.name, task_path(task) %></td>
+        <td><%= link_to task.name, task_path(task), :class => "task#{i}" %></td>
         <td><%= task.description %></td>
         <td><%= task.deadline || "none" %></td>
         <td><%= time_ago_in_words(task.created_at) %> ago</td>
@@ -23,6 +24,7 @@
           <%= link_to 'Destroy', task_path(task), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
+      <% i += 1 %>
     <% end %>
   </tbody>
 </table>

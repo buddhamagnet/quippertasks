@@ -56,6 +56,6 @@ class TasksController < ApplicationController
   end
   
   def sort_order
-    %w[asc desc].include?(params[:order]) ? params[:order] : "ASC"
+    %w[ASC DESC].include?(params[:order]) ? params[:order] : "ASC"
   end
 end
