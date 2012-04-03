@@ -9,6 +9,10 @@ describe Task do
     it "should have a deadline" do
       @task.should respond_to(:deadline)
     end
+    
+    it "should have a completed state" do
+      @task.should respond_to(:completed)
+    end
   end
   
   describe "task assocations" do
