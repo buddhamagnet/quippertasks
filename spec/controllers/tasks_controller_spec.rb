@@ -83,7 +83,7 @@ describe TasksController do
   describe "create task" do
     before(:each) do
       @user = FactoryGirl.create(:user, :email => Factory.next(:email))
-      @attr = { :name => "test task", :description => "Just a test" }
+      @attr = { :name => "test task", :description => "Just a test", :deadline => Time.now }
       sign_in @user
     end
     
@@ -92,5 +92,24 @@ describe TasksController do
         post :create, :task => @attr
       end.should change(Task, :count).by(1)
     end
+    
+    it "should require a name" do
+      lambda do
+        post :create, :task => @attr.merge!(:name => "")
+      end.should_not change(Task, :count)
+    end
+      
+    it "should require a description" do
+      lambda do
+        post :create, :task => @attr.merge!(:description => "")
+      end.should_not change(Task, :count)
+    end
+    
+    it "should require a deadline" do
+      lambda do
+        post :create, :task => @attr.merge!(:deadline => "")
+      end.should_not change(Task, :count)
+    end
+  
   end
 end
