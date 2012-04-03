@@ -23,11 +23,15 @@ describe Task do
   
   describe "task validations" do
     it "should require a name" do
-      Task.new(:name => '', :description => "I am the task with no name").should_not be_valid
+      Task.new(:name => '', :description => "I am the task with no name", :deadline => Time.now).should_not be_valid
     end
     
     it "should require a description" do
-      Task.new(:name => 'Test task', :description => '').should_not be_valid
+      Task.new(:name => 'Test task', :description => '', :deadline => Time.now).should_not be_valid
+    end
+    
+    it "should require a deadline" do
+      Task.new(:name => 'Test task', :description => 'Test description', :deadline => nil).should_not be_valid
     end
   end
 end
