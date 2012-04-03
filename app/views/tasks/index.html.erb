@@ -2,11 +2,11 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
+      <th><%= sortable "name" %></th>
       <th>Description</th>
-      <th>Deadline</th>
-      <th>Completed</th>
-      <th>Created</th>
+      <th><%= sortable "deadline" %></th>
+      <th><%= sortable "created_at", "Created" %></th>
+      <th><%= sortable "completed" %></th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -16,8 +16,8 @@
         <td><%= link_to task.name, task_path(task) %></td>
         <td><%= task.description %></td>
         <td><%= task.deadline || "none" %></td>
-        <td><%= task.completed ? "yes" : "no" %></td>
         <td><%= time_ago_in_words(task.created_at) %> ago</td>
+        <td><%= task.completed ? "yes" : "no" %></td>
         <td>
           <%= link_to 'Edit', edit_task_path(task), :class => 'btn btn-mini' %>
           <%= link_to 'Destroy', task_path(task), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>

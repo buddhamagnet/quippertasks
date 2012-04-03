@@ -1,8 +1,10 @@
 class TasksController < ApplicationController
   before_filter :authenticate
   
+  helper_method :sort_column, :sort_order
+  
   def index
-    @tasks = current_user.tasks
+    @tasks = current_user.tasks.order(sort_column + " " + sort_order)
   end
   
   def show
@@ -45,5 +47,15 @@ class TasksController < ApplicationController
   
   def expired
     @tasks = Task.expired
+  end
+  
+  private
+  
+  def sort_column
+    Task.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_order
+    %w[asc desc].include?(params[:order]) ? params[:order] : "ASC"
   end
 end
