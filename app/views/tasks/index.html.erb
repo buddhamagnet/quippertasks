@@ -1,3 +1,4 @@
+<% if @tasks.any? %>
 <h1>Tasks</h1>
 <table class="task-list table table-striped">
   <thead>
@@ -28,5 +29,9 @@
     <% end %>
   </tbody>
 </table>
+
+<% else %>
+
+<p>You don't have any tasks yet. Create one by clicking the button below.</p>
 
 <%= link_to 'New', new_task_path, :class => 'btn btn-primary' %>
