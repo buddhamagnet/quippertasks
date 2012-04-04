@@ -1,7 +1,7 @@
 Welcome to my take on the Join Quipper test
 
-[<img src="https://secure.travis-ci.org/buddhamagnet/quippertasks.png?rvm=1.9.3" />](http://github.com/buddhamagnet/quippertasks)
- 
+[![Build Status](https://secure.travis-ci.org/buddhamagnet/quippertasks.png?branch=master)](http://travis-ci.org/buddhamagnet/quippertasks) 
+
 As per instructions:
 
 1. Use the latest stable Ruby - 1.9.3
