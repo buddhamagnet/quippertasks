@@ -3,7 +3,7 @@ class Task < ActiveRecord::Base
   
   has_attached_file :document
   
-  attr_accessible :description, :name, :deadline, :completed
+  attr_accessible :description, :name, :deadline, :completed, :document
   
   validates :name, :presence => true
   validates :description, :presence => true
