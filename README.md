@@ -1,6 +1,6 @@
 == Welcome to my take on the Join Quipper test
 
-<img src="https://secure.travis-ci.org/buddhamagnet/quippertasks.png?rvm=1.9.3" />
+[<img src="https://secure.travis-ci.org/buddhamagnet/quippertasks.png?rvm=1.9.3" />](http://github.com/buddhamagnet/quippertasks)
  
 As per instructions:
 
