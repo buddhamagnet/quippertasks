@@ -3,6 +3,6 @@ class PagesController < ApplicationController
   end
 
   def show
-    render :action => params[:page]
+    render action: params[:page]
   end
 end

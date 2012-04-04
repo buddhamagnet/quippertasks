@@ -20,7 +20,7 @@
         <td><%= task.completed ? "yes" : "no" %></td>
         <td><%= time_ago_in_words(task.created_at) %> ago</td>
         <td>
-          <%= link_to 'Destroy', task_path(task), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+          <%= link_to 'Destroy', task_path(task), method: :delete, confirm: 'Are you sure?', class: 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
