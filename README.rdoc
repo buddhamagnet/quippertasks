@@ -1,5 +1,7 @@
 == Welcome to my take on the Join Quipper test
 
+<img src="https://secure.travis-ci.org/buddhamagnet/quippertasks.png?rvm=1.9.3" />
+ 
 As per instructions:
 
 1. Use the latest stable Ruby - 1.9.3
