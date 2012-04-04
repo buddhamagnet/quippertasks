@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe TasksController do
-  
+    
   render_views
   
   describe "tasks index" do
@@ -14,14 +14,16 @@ describe TasksController do
     
     describe "signed in" do
       before(:each) do
-        @user = FactoryGirl.create(:user)
+        @user = FactoryGirl.create(:user, :email => Factory.next(:email))
         sign_in @user
+        @task = FactoryGirl.create(:task, :user_id => @user.id)
       end
       
       it "should display a list of tasks" do
         get :index
         response.should be_success
-        response.body.should have_css("table.task-list")
+        puts response.body
+        response.body.should have_selector("table.task-list")
       end
     end
   end
@@ -120,14 +122,14 @@ describe TasksController do
     end
     
     it "should not display any tasks if no deadlines have been missed" do
-      get :expired
-      response.body.should have_selector("h1", :text => "No tasks currently expired")
+      get 'expired'
+      response.body.should have_selector("h3", :text => "No tasks currently expired")
     end
     
     it "should display a task that has missed the deadline" do
       Timecop.freeze(Date.today + 30)
       get :expired
-      response.body.should have_selector("h1", :text => "Expired Tasks")
+      response.body.should have_selector("h3", :text => "Expired Tasks")
     end
   end
   
