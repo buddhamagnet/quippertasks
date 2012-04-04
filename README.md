@@ -1,4 +1,4 @@
-== Welcome to my take on the Join Quipper test
+Welcome to my take on the Join Quipper test
 
 [<img src="https://secure.travis-ci.org/buddhamagnet/quippertasks.png?rvm=1.9.3" />](http://github.com/buddhamagnet/quippertasks)
  
@@ -20,7 +20,7 @@ As per instructions:
 8. Not all stories have to be finished - they were!
 9. Stories do not have to be finished in that order - again, they were.
 
-== COMPLETED STORIES
+COMPLETED STORIES
 
 1. As a user, I want to create a task so that I will not forget something to do.
 2. As a user, I want to create a task with a deadline so that I will not miss deadline.
@@ -31,6 +31,6 @@ As per instructions:
 7. As a user, I want to see tasks list ordered by created date.
 8. As a user, I want to see tasks list ordered by deadline.
 
-== WORKING EXAMPLE
+WORKING EXAMPLE
 
 Deployed to heroku at quippertest.heroku.com
