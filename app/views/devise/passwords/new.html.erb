@@ -1,0 +1,11 @@
+<h3>Forgot your password?</h3><br />
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= f.email_field :email %></div>
+
+  <div><%= f.submit "Send me reset password instructions to the above email address" %></div>
+<% end %>
+
+<%= render "links" %>
