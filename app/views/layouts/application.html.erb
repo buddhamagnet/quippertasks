@@ -18,9 +18,9 @@
 		  <li><%= link_to "home", root_path %></li>
 		  <li><%= link_to "quipper", "http://quipper.com" %></li>
 		  <% if user_signed_in? %>
-		  <li><%= link_to "my tasks", tasks_path %></li>
-		  <li><%= link_to "create task", new_task_path %></li>
-		  <li><%= link_to "expired tasks", expired_tasks_path %><li>
+		  <li><%= link_to "my tasks", tasks_path, :rel => "tooltip", :title => "show all my tasks" %></li>
+		  <li><%= link_to "create task", new_task_path, :rel => "tooltip", :title => "create a new task" %></li>
+		  <li><%= link_to "expired tasks", expired_tasks_path, :rel => "tooltip", :title => 'show tasks that have expired' %><li>
 		  <% end %>
 		</ul>
 	  </div>
