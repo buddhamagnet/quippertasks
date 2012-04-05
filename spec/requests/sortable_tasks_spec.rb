@@ -19,6 +19,6 @@ describe "SortableTasks" do
   
   it "should show task 3 first in completed order" do
     visit 'tasks?order=ASC&sort=completed'
-    response.should have_selector('a', :class => "task1", :content => @task3.name)
+    page.should have_selector('a', :class => "task1", :content => @task3.name)
   end
 end
