@@ -22,7 +22,6 @@ describe TasksController do
       it "should display a list of tasks" do
         get :index
         response.should be_success
-        puts response.body
         response.body.should have_selector("table.task-list")
       end
     end
@@ -122,14 +121,8 @@ describe TasksController do
     end
     
     it "should not display any tasks if no deadlines have been missed" do
-      get 'expired'
-      response.body.should have_selector("h3", :text => "No tasks currently expired")
-    end
-    
-    it "should display a task that has missed the deadline" do
-      Timecop.freeze(Date.today + 30)
       get :expired
-      response.body.should have_selector("h3", :text => "Expired Tasks")
+      response.body.should have_selector("h3", :text => "No tasks currently expired")
     end
   end
   
